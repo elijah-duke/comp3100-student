@@ -9,6 +9,7 @@
  */
 
 #include <stdio.h>
+#include <string.h>
 /* FAULT 1 — symptom: the compiler reports an implicit declaration of
  * 'strlen' and suggests a header. This file never says where strlen
  * lives. */
@@ -19,12 +20,12 @@ int main(void)
 {
     const char *motto = "Ex Vapore, Ordo";
     int hours[DAYS]; /* one pigeonhole per working day */
-    int total;       /* the week's tally */
+    int total = 0;       /* the week's tally */
 
     /* FAULT 3 — symptom: compiles and links, then AddressSanitizer
      * halts the run with "stack-buffer-overflow ... WRITE of size 4".
      * Five pigeonholes; count what this loop touches. */
-    for (int day = 0; day <= DAYS; day++)
+    for (int day = 0; day < DAYS; day++)
         hours[day] = day + 4; /* 4, 5, 6, 7, 8 — an honest week */
 
     /* FAULT 4 — symptom: nothing at all — and even valgrind stays
@@ -38,7 +39,7 @@ int main(void)
      * assignment used as a truth value — and every week comes out
      * "full", whatever the pigeonholes hold. One character short of a
      * comparison. */
-    if (total = 30)
+    if (total == 30)
         printf("A full week: %d hours at the bench.\n", total);
     else
         printf("A short week: %d hours at the bench.\n", total);
