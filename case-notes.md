@@ -15,7 +15,7 @@ The skill this builds is noticing; explaining comes later, sometimes weeks later
 | 3 | loom-tender, which is a process running with PPid 1. It has an environment variable, PATRON=E.K. | `/proc/<pid>/environ` | E.K. was the patron who orphaned this process |
 | 4 | A dispatcher script that ran burners at courtesy 0 at 15:14. | `ps -o pid,ppid,ni,args` to the parent `crontab -l` | Very similar to previous weeks where a system keeps running itself. |
 | 5 | Table IX twice, the two measured rows matched and the computed rows didn't. | `diff ~/enginehouse/ledgers/output-ledger.txt ~/.ledger-annex` | The Engine rounds each number before adding, since my math didn't round til the end |
-| 6 |  |  |  |
+| 6 | Lever 07 is held by a lock file owned by uid 1849. The roll lists 1849 as "Computing Room corps, pending archive transfer". | `cat lever-07.lock`, `cat lock-record.txt`, and `getent passwd 1849` |  This is relevant to Week 1's denied pension petition. |
 
 Add more rows as the weeks go on. Keep entries short — a sentence or two per column is plenty, and a note that turns out to be nothing costs you nothing.
 
@@ -46,6 +46,10 @@ This is something timed very intentionally against the exhibition of the Grand A
 ### Week Five
 
 The rounding problem would make sense considering the consistency of the computations that didn't match. If the system is rounding, then who or what is doing the correct math in the fair copy?
+
+### Week Six
+
+In week one, we read about a denied pension petition due to the Analytical Engine replacing the Computing room. The description, "Computing Room corps, pending archive transfer" seems related, and might be cause for someone to protest or sabotage.
 
 ------------------------------------------------------------------------
 
