@@ -15,7 +15,12 @@ The skill this builds is noticing; explaining comes later, sometimes weeks later
 | 3 | loom-tender, which is a process running with PPid 1. It has an environment variable, PATRON=E.K. | `/proc/<pid>/environ` | E.K. was the patron who orphaned this process |
 | 4 | A dispatcher script that ran burners at courtesy 0 at 15:14. | `ps -o pid,ppid,ni,args` to the parent `crontab -l` | Very similar to previous weeks where a system keeps running itself. |
 | 5 | Table IX twice, the two measured rows matched and the computed rows didn't. | `diff ~/enginehouse/ledgers/output-ledger.txt ~/.ledger-annex` | The Engine rounds each number before adding, since my math didn't round til the end |
-| 6 | Lever 07 is held by a lock file owned by uid 1849. The roll lists 1849 as "Computing Room corps, pending archive transfer". | `cat lever-07.lock`, `cat lock-record.txt`, and `getent passwd 1849` |  This is relevant to Week 1's denied pension petition. |
+| 6 | Lever 07 is held by a lock file owned by uid 1849. The roll lists 1849 as "Computing Room corps, pending archive transfer". | `cat lever-07.lock`, `cat lock-record.txt`, and `getent passwd 1849` | This is relevant to Week 1's denied pension petition. |
+| 7 | I found a dealock and evidence of such. Ran a recovery method to break the deadlock. | `info thread` and `pipe thread apply all bt | grep take_lever` | The resources of the youngest box were freed so that a thread could make progress. |
+| 9 | `store-siphon` leaks every block it draws. 52, past its cap of 48. The "lost" heap blocks still hold a message to the Board and the Exhibition's guests. | `valgrind --leak-check=full`, `x/s <addr>`, and `grep -n '/\*'` | This was signed by E.K. again. I think the leak was on purpose and meant to be found. |
+| 10 | | | |
+| 11 | | | |
+| 12 | The post is a live copier, not a file. The copier tube-tee runs as uid 1849, reparented to PID 1. The drop box holds 12 staged capsules; capsule 04 has no sender. | `ls -lan ~/enginehouse/post/`, `ps -C tube-tee and /proc/<pid>/cmdline`, `grep '^CAPSULE ' outbound-copy.txt` | A living process duplicates the line's traffic into a box I can read. |
 
 Add more rows as the weeks go on. Keep entries short — a sentence or two per column is plenty, and a note that turns out to be nothing costs you nothing.
 
@@ -50,6 +55,18 @@ The rounding problem would make sense considering the consistency of the computa
 ### Week Six
 
 In week one, we read about a denied pension petition due to the Analytical Engine replacing the Computing room. The description, "Computing Room corps, pending archive transfer" seems related, and might be cause for someone to protest or sabotage.
+
+### Week Seven
+
+I'm not entirely sure about the story this week. I am guessing this was E.K.'s doing and they did something similar last week: creating a dead week. Someone is trying to halt progress of the Analytical Engine.
+
+### Week Nine
+
+E.K. left a message in a place that would persist. It was addressed to the Board and the Exhibition's guests. I think it answers Weeks 1 and 6: the Computing Room corps weren't the obsolete tool the Engine replaced; the Engine was the thing that needed checking, and they (including E.K.) were the check.
+
+### Week Twelve
+
+The post line carries each capsule to the exchange and keeps an exact copy in a drop box I can read, but it records no senders. I can trust what passed without ever proving who sent it. The one unsigned capsule urges the five sister cities to check their Engines before trusting them, which echoes Week 9's reading that the Engine was the thing needing a check.
 
 ------------------------------------------------------------------------
 

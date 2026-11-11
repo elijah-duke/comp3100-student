@@ -30,7 +30,7 @@ static struct entry *enter(struct entry *ledger, const char *name, int blocks)
         fprintf(stderr, "store-clerk: out of slips\n");
         exit(1);
     }
-    e->name = malloc(strlen(name));
+    e->name = malloc(strlen(name) + 1);   /* room for the closing '\0' */
     if (e->name == NULL) {
         fprintf(stderr, "store-clerk: out of slips\n");
         exit(1);
@@ -63,8 +63,8 @@ int main(void)
     /* The newest bureau returns its blocks: strike its slip. */
     struck = ledger;
     ledger = ledger->next;
-    strike(struck);
     printf("Struck from the ledger: %d blocks returned.\n", struck->blocks);
+    strike(struck);
 
     printf("Blocks still out:\n");
     for (e = ledger; e != NULL; e = e->next) {
@@ -72,5 +72,12 @@ int main(void)
         total += e->blocks;
     }
     printf("Ledger total: %d blocks outstanding.\n", total);
+
+    /* Close the books: hand every remaining slip back to the Store. */
+    while (ledger != NULL) {
+        struck = ledger;
+        ledger = ledger->next;
+        strike(struck);
+    }
     return 0;
 }
