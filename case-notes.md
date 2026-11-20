@@ -21,6 +21,7 @@ The skill this builds is noticing; explaining comes later, sometimes weeks later
 | 10 | | | |
 | 11 | | | |
 | 12 | The post is a live copier, not a file. The copier tube-tee runs as uid 1849, reparented to PID 1. The drop box holds 12 staged capsules; capsule 04 has no sender. | `ls -lan ~/enginehouse/post/`, `ps -C tube-tee and /proc/<pid>/cmdline`, `grep '^CAPSULE ' outbound-copy.txt` | A living process duplicates the line's traffic into a box I can read. |
+| 13 | The setuid `.spare-key` in the registry is owned by uid 1849, and the Warden's log shows `key=1849` in the READING-ROOM. | `find "$HOME" -perm -4000`, `ls -lan ~/enginehouse/registry`, `comm`/`awk` over `auth-ledger.log` and `visitor-ledger-1851.txt` | uid 1849 is Week 6's "Computing Room corps, pending archive transfer." A key shown with no visit behind it is a token used without a hand. |
 
 Add more rows as the weeks go on. Keep entries short — a sentence or two per column is plenty, and a note that turns out to be nothing costs you nothing.
 
@@ -67,6 +68,10 @@ E.K. left a message in a place that would persist. It was addressed to the Board
 ### Week Twelve
 
 The post line carries each capsule to the exchange and keeps an exact copy in a drop box I can read, but it records no senders. I can trust what passed without ever proving who sent it. The one unsigned capsule urges the five sister cities to check their Engines before trusting them, which echoes Week 9's reading that the Engine was the thing needing a check.
+
+### Week Thirteen
+
+uid 1849 surfaces again — the owner of the setuid `.spare-key` and the key logged in the READING-ROOM — and it's the same 1849 from Week 6, "Computing Room corps, pending archive transfer." What stands out is the gap between the two books: every one of 1849's sessions is backed by a real entry in the porters' visitor ledger, while the `apprentice-master` key is shown 47 times and never once lands inside a documented visit. A key can be presented at a door without a hand behind it, and that's exactly what the busiest key looks like here — a token used without a body in the room, automated or borrowed. If 1849's presence is real and the Engine's own key is the ghost, that fits Week 9's reading: the corps were the check, and someone wanted the record to say otherwise.
 
 ------------------------------------------------------------------------
 
