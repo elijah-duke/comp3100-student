@@ -217,11 +217,13 @@ You don't have to stop the VM between sessions; closing the laptop lid suspends 
 
 You already live in the building. Install the tools with your distro's package manager and skip the VM:
 
--   **Debian/Ubuntu:** `sudo apt install strace lsof psmisc procps htop   sysstat build-essential gdb valgrind pkg-config man-db manpages   manpages-dev manpages-posix manpages-posix-dev tmux tree e2fsprogs   util-linux cron` (that's the same core tool set `setup/cloud-init.yaml` installs; `manpages-posix*` live in multiverse, enabled by default on desktop installs). For `perf`, later in the course: Ubuntu's package is `linux-tools-$(uname -r)`; Debian's is `linux-perf`.
--   **Fedora:** `sudo dnf install strace lsof psmisc htop sysstat gcc   gcc-c++ make gdb valgrind pkgconf-pkg-config perf man-db man-pages   e2fsprogs util-linux cronie tmux tree` (POSIX man pages: `man-pages-posix` from RPM Fusion nonfree, or read them online).
--   **Arch:** `sudo pacman -S strace lsof psmisc htop sysstat base-devel   gdb valgrind perf man-db man-pages cronie tmux tree`.
+-   **Debian/Ubuntu:** `sudo apt install strace lsof psmisc procps htop   sysstat build-essential gdb valgrind pkg-config man-db manpages   manpages-dev manpages-posix manpages-posix-dev tmux tree e2fsprogs   util-linux net-tools cron` (that's the same core tool set `setup/cloud-init.yaml` installs; `manpages-posix*` live in multiverse, enabled by default on desktop installs). For `perf`, later in the course: Ubuntu's package is `linux-tools-$(uname -r)`; Debian's is `linux-perf`.
+-   **Fedora:** `sudo dnf install strace lsof psmisc htop sysstat gcc   gcc-c++ make gdb valgrind pkgconf-pkg-config perf man-db man-pages   e2fsprogs util-linux net-tools cronie tmux tree` (POSIX man pages: `man-pages-posix` from RPM Fusion nonfree, or read them online).
+-   **Arch:** `sudo pacman -S strace lsof psmisc htop sysstat base-devel   gdb valgrind perf man-db man-pages net-tools cronie tmux tree`.
 
-(`cron` — `cronie` on Fedora and Arch — is what puts `crontab` and its manual page on your machine. Debian and Ubuntu install it for you; the other two often don't, and a later week wants it.)
+(`cron` — `cronie` on Fedora and Arch — is what puts `crontab` and its
+manual page on your machine. Debian and Ubuntu install it for you; the
+other two often don't, and a later week wants it.)
 
 Make sure you can run `strace ls` without `sudo`. (Attaching to an
 *already-running* process — `strace -p <pid>` — is a separate
@@ -332,7 +334,7 @@ multipass start comp3100
 The patch-in-place package list (Paths A/B) — the same set the config installs:
 
 ``` sh
-sudo apt update && sudo apt install -y strace lsof psmisc procps htop sysstat time build-essential gdb valgrind pkg-config man-db manpages manpages-dev manpages-posix manpages-posix-dev vim nano tmux tree file less curl git unzip e2fsprogs util-linux cron
+sudo apt update && sudo apt install -y strace lsof psmisc procps htop sysstat time build-essential gdb valgrind pkg-config man-db manpages manpages-dev manpages-posix manpages-posix-dev vim nano tmux tree file less curl git unzip e2fsprogs util-linux net-tools cron
 sudo apt install -y "linux-tools-$(uname -r)" linux-tools-common || sudo apt install -y linux-tools-generic linux-tools-common
 ```
 
